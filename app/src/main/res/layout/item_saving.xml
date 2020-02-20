@@ -92,7 +92,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="3"
                             android:text="TextView"
-                            android:textColor="#000000"
+                            android:textColor="@color/textDark"
                             android:textSize="16dp"
                             android:textStyle="bold" />
                     </TableRow>
@@ -114,7 +114,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="3"
                             android:text="TextView"
-                            android:textColor="#000000"
+                            android:textColor="@color/textDark"
                             android:textSize="16dp"
                             android:textStyle="bold" />
 
@@ -150,8 +150,10 @@
                         android:layout_height="wrap_content"
                         android:layout_above="@id/monthPrice"
                         android:layout_alignParentRight="true"
+                        android:layout_marginRight="-2dp"
+                        android:layout_marginBottom="-2dp"
                         android:text="12개월 간"
-                        android:textColor="#1F1F1F"
+                        android:textColor="@color/textDarkGray"
                         android:textSize="16sp" />
 
                     <TextView
@@ -161,7 +163,7 @@
                         android:layout_alignParentRight="true"
                         android:layout_alignParentBottom="true"
                         android:text="월 100,000원"
-                        android:textColor="#000000"
+                        android:textColor="@color/textDark"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 

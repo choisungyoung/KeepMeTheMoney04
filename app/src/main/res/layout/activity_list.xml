@@ -9,45 +9,118 @@
 
     <android.support.v4.widget.DrawerLayout
         android:id="@+id/drawer"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            tools:context=".Activity.ListActivity">
-
+            android:orientation="vertical">
 
             <LinearLayout
+                android:id="@+id/page"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
                 android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/msgTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center|center_horizontal|center_vertical"
-                    android:gravity="center_horizontal|center_vertical"
-                    android:text="TextView"
-                    android:textColor="@android:color/primary_text_light_nodisable"
-                    android:textSize="24sp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="1"
+                    android:gravity="bottom|center_horizontal"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/targetMoney"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="100,000"
+                        android:textColor="@color/textDark"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="원 기준, "
+                        android:textColor="@color/textGray"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/productName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="스마트폰"
+                        android:textColor="@color/textDark"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="을 위한"
+                        android:textColor="@color/textGray"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="bottom|center_horizontal"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="최고"
+                        android:textColor="@color/textDark"
+                        android:textSize="22sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" 금리는 "
+                        android:textColor="@color/textGray"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/rate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3.3"
+                        android:textColor="@color/textDark"
+                        android:textSize="26sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="% 입니다."
+                        android:textColor="@color/textGray"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
             </LinearLayout>
 
-            <ListView
+            <com.example.keepmethemoney04.Activity.DecListView
                 android:id="@+id/listview"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="2"
                 android:background="#e9e9e9"
                 android:divider="#e9e9e9"
-                android:dividerHeight="0px" />
+                android:dividerHeight="0px"></com.example.keepmethemoney04.Activity.DecListView>
+
         </LinearLayout>
 
         <ListView
@@ -55,11 +128,10 @@
             android:layout_width="220dp"
             android:layout_height="match_parent"
             android:layout_gravity="left"
-            android:layout_weight="2"
             android:background="#ededed"
             android:divider="#ededed"
             android:dividerHeight="0dp"
-            android:paddingBottom="20dp"
-            android:paddingTop="20dp" />
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp" />
     </android.support.v4.widget.DrawerLayout>
 </android.support.constraint.ConstraintLayout>

@@ -9,4 +9,10 @@
     <color name="textPrimary">#006102</color>
     <color name="textPrimaryDark">#002701</color>
     <color name="textAccent">#455E45</color>
+
+
+    <color name="textDark">#0C0C0C</color>
+    <color name="textDarkGray">#1A1A1A</color>
+    <color name="textGray">#363636</color>
+    <color name="detailTitle">#832222</color>
 </resources>

@@ -21,8 +21,12 @@
     <ListView
         android:id="@+id/detailListView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="#ffffff"
         android:dividerHeight="0px"
         android:divider="#ffffff" />
+    <RelativeLayout
+        android:id="@+id/map_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </LinearLayout>
