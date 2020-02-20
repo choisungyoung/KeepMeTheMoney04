@@ -127,7 +127,7 @@
             android:id="@+id/drawer_menulist"
             android:layout_width="220dp"
             android:layout_height="match_parent"
-            android:layout_gravity="left"
+            android:layout_gravity="right"
             android:background="#ededed"
             android:divider="#ededed"
             android:dividerHeight="0dp"
