@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.example.keepmethemoney04.*;
 import com.example.keepmethemoney04.Model.Saving;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class DetailListviewAdapter extends BaseAdapter {
@@ -46,12 +47,13 @@ public class DetailListviewAdapter extends BaseAdapter {
         title.setText("•  "+sp.title);
         TextView content = convertView.findViewById(R.id.detailContent);
         String str = sp.content;
+        DecimalFormat format = new DecimalFormat("###,###");
 
         if(position == 3 || position == 4){
             str += " %";
         }
         else if(position == 5){
-            str += " 원";
+            str = format.format(Integer.parseInt(str)) + " 원";
         }else if(position == 6){
             str += " 개월";
         }
