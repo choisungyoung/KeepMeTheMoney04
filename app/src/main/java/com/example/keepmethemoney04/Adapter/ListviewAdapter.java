@@ -12,6 +12,7 @@ import com.example.keepmethemoney04.Activity.ListActivity;
 import com.example.keepmethemoney04.Model.Calculator;
 import com.example.keepmethemoney04.Model.Saving;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class ListviewAdapter extends BaseAdapter {
@@ -60,6 +61,7 @@ public class ListviewAdapter extends BaseAdapter {
         hiddenIndex.setText(position+"");
         int principal = 0;
         boolean f = ((ListActivity)context).stdFlag;
+        DecimalFormat format = new DecimalFormat("###,###");
         if(f){
             principal = (int) Calculator.getPrincipal(targetMoney,Integer.parseInt(s.getSave_trm()),s.getIntr_rate2());
             stdText.setText("우대금리");
@@ -68,7 +70,7 @@ public class ListviewAdapter extends BaseAdapter {
             principal = (int) Calculator.getPrincipal(targetMoney,Integer.parseInt(s.getSave_trm()),s.getIntr_rate());
             stdText.setText("기본금리");
         }
-        monthPrice.setText("월 "+Integer.toString(principal)+"원");
+        monthPrice.setText("월 "+ format.format(principal) +"원"); //Integer.toString(principal)
        //TextView accountName = convertView.findViewById(R.id.accountName);
 
        return convertView;

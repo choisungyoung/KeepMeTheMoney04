@@ -61,7 +61,7 @@ public class ImageProductAdapter extends BaseAdapter {
 
                 Intent intent = new Intent(v.getContext(), ListActivity.class);
                 intent.putExtra("productName",imageList.get(position).name);
-                intent.putExtra("targetMoney",1000000);
+                intent.putExtra("targetMoney",imageList.get(position).price);
                 context.startActivity(intent);
             }
         });

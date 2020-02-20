@@ -18,32 +18,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/image"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/flexible_space_image_height"
-        android:scaleType="centerCrop"
-        android:src="@drawable/example" />
+    <!--&lt;!&ndash;<ImageView&ndash;&gt;-->
+        <!--&lt;!&ndash;android:id="@+id/image"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_height="@dimen/flexible_space_image_height"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:scaleType="centerCrop"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:src="@drawable/example" />&ndash;&gt;-->
 
-    <View
-        android:id="@+id/list_background"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/white" />
+    <!--<View-->
+        <!--android:id="@+id/list_background"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:background="@android:color/white" />-->
 
-    <com.github.ksoichiro.android.observablescrollview.ObservableListView
-        android:id="@+id/list"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+    <!--<com.github.ksoichiro.android.observablescrollview.ObservableListView-->
+        <!--android:id="@+id/list"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent" />-->
 
-    <include layout="@layout/gradient_header" />
+    <!--<include layout="@layout/gradient_header" />-->
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        app:popupTheme="@style/Theme.AppCompat.Light.DarkActionBar"
-        app:theme="@style/Toolbar" />
+    <!--<android.support.v7.widget.Toolbar-->
+        <!--android:id="@+id/toolbar"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:background="?attr/colorPrimary"-->
+        <!--android:minHeight="?attr/actionBarSize"-->
+        <!--app:popupTheme="@style/Theme.AppCompat.Light.DarkActionBar"-->
+        <!--app:theme="@style/Toolbar" />-->
 </FrameLayout>

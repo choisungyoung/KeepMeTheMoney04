@@ -1,5 +1,6 @@
 package com.example.keepmethemoney04.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -25,6 +26,10 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        Intent intent = new Intent(this, SplashActivity.class);
+        startActivity(intent);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
