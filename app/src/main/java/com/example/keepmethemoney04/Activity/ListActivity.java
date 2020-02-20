@@ -27,13 +27,14 @@ import com.example.keepmethemoney04.Model.Calculator;
 import com.example.keepmethemoney04.Model.Data;
 import com.example.keepmethemoney04.Model.Saving;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
 public class ListActivity extends AppCompatActivity {
     ArrayList<Saving> savings = null;
-    DecListView listView = null;
+    ListView listView = null;
     ListView menuListView = null;
     int targetMoney = 0;
     String productName = null;
@@ -52,7 +53,7 @@ public class ListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
 
-        listView = (DecListView) findViewById(R.id.listview);
+        listView = (ListView) findViewById(R.id.listview);
 
         savings = Data.savings;
         sortByRate2();
@@ -64,7 +65,8 @@ public class ListActivity extends AppCompatActivity {
         TextView productNameText = findViewById(R.id.productName);
         TextView rateText = findViewById(R.id.rate);
 
-        targetMoneyText.setText(convertHangul(Integer.toString(targetMoney)));
+        DecimalFormat format = new DecimalFormat("###,###");
+        targetMoneyText.setText(format.format(targetMoney));
         targetMoneyText.setPaintFlags(targetMoneyText.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         productNameText.setText(productName);
         productNameText.setPaintFlags(productNameText.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
@@ -142,7 +144,7 @@ public class ListActivity extends AppCompatActivity {
         Collections.sort(savings, new Comparator<Saving>() {
             @Override
             public int compare(Saving o1, Saving o2) {
-                if (o2.getIntr_rate() < o1.getIntr_rate()) {
+                if (o2.getIntr_rate() > o1.getIntr_rate()) {
                     return 1;
                 } else {
                     return -1;
@@ -257,7 +259,7 @@ public class ListActivity extends AppCompatActivity {
     }
 
 }
-
+/*
 
 class DecListView extends android.widget.ListView {
 
@@ -349,4 +351,4 @@ interface OnDetectScrollListener {
     void onUpScrolling();
 
     void onDownScrolling();
-}
+}*/

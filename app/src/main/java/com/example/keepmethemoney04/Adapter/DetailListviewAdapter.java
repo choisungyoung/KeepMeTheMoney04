@@ -1,6 +1,8 @@
 package com.example.keepmethemoney04.Adapter;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +20,7 @@ public class DetailListviewAdapter extends BaseAdapter {
     private int layout;
    private ArrayList<Saving.SavingPair> data;
     private int targetMoney;
+
    public DetailListviewAdapter(Context context, int layout, ArrayList<Saving> list, int index){
        this.inflater=(LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
