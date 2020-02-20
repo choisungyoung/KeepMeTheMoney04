@@ -25,7 +25,9 @@
         android:background="#ffffff"
         android:divider="#ffffff"
         android:layout_weight="1"
-        android:dividerHeight="0px" />
+        android:dividerHeight="0px">
+
+    </ListView>
 
     <RelativeLayout
         android:id="@+id/map_view"
