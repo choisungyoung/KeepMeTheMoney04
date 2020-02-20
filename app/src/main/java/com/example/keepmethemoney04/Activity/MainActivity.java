@@ -63,7 +63,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void intentList() {
         //로딩이 끝났을 때, 실행할 로직
-        Data.sortByRate();
 
     }
 

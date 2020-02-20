@@ -7,9 +7,15 @@
     <color name="colorBack">#FFEBEB</color>
     <color name="colorWhite">#FFFFFF</color>
 
+    <color name="textDark">#0C0C0C</color>
+    <color name="textDarkGray">#1A1A1A</color>
+    <color name="textGray">#363636</color>
+    <color name="detailTitle">#832222</color>
+
     <color name="textPrimary">#CF0F13</color>
     <color name="textPrimaryDark">#640000</color>
     <color name="textAccent">#960000</color>
 
     <!--<color name="SplashBackground">#970000</color>-->
+
 </resources>
