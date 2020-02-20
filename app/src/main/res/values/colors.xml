@@ -5,8 +5,11 @@
     <color name="colorAccent">#FF0000</color>
 
     <color name="colorBack">#FFEBEB</color>
+    <color name="colorWhite">#FFFFFF</color>
 
     <color name="textPrimary">#CF0F13</color>
     <color name="textPrimaryDark">#640000</color>
     <color name="textAccent">#960000</color>
+
+    <!--<color name="SplashBackground">#970000</color>-->
 </resources>
