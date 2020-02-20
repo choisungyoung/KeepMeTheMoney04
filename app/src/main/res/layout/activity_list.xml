@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorWhite"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".Activity.ListActivity">
 
@@ -43,7 +44,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="100,000"
-                        android:textColor="@color/textDark"
+                        android:textColor="@color/textPrimaryDark"
                         android:textSize="15sp"
                         android:textStyle="bold" />
 
@@ -59,7 +60,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="스마트폰"
-                        android:textColor="@color/textDark"
+                        android:textColor="@color/textPrimaryDark"
                         android:textSize="20sp"
                         android:textStyle="bold" />
 
@@ -98,7 +99,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="3.3"
-                        android:textColor="@color/textDark"
+                        android:textColor="@color/textPrimaryDark"
                         android:textSize="26sp"
                         android:textStyle="bold" />
 
@@ -117,9 +118,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="2"
-                android:background="#e9e9e9"
-                android:divider="#e9e9e9"
-                android:dividerHeight="0px"></com.example.keepmethemoney04.Activity.DecListView>
+                android:background="@color/colorBack"
+                android:divider="@color/colorBack"
+                android:dividerHeight="0px"
+                ></com.example.keepmethemoney04.Activity.DecListView>
 
         </LinearLayout>
 
