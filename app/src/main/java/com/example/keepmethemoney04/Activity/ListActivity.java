@@ -34,7 +34,7 @@ import java.util.Comparator;
 
 public class ListActivity extends AppCompatActivity {
     ArrayList<Saving> savings = null;
-    DecListView listView = null;
+    ListView listView = null;
     ListView menuListView = null;
     int targetMoney = 0;
     String productName = null;
@@ -53,7 +53,7 @@ public class ListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
 
-        listView = (DecListView) findViewById(R.id.listview);
+        listView = (ListView) findViewById(R.id.listview);
 
         savings = Data.savings;
         sortByRate2();
@@ -259,7 +259,7 @@ public class ListActivity extends AppCompatActivity {
     }
 
 }
-
+/*
 
 class DecListView extends android.widget.ListView {
 
@@ -351,4 +351,4 @@ interface OnDetectScrollListener {
     void onUpScrolling();
 
     void onDownScrolling();
-}
+}*/

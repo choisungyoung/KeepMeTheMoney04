@@ -15,7 +15,8 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:text="TextView"
-        android:textColor="@android:color/background_dark"
+        android:background="@color/colorBack"
+        android:textColor="@color/textPrimaryDark"
         android:textSize="18sp" />
 
     <ListView

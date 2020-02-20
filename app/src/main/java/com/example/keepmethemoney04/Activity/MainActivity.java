@@ -26,11 +26,14 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-        Intent intent = new Intent(this, SplashActivity.class);
-        startActivity(intent);
+        startActivity(new Intent(getApplicationContext(), SplashActivity.class));
 
         super.onCreate(savedInstanceState);
+//        try {
+//            Thread.sleep(500);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
         setContentView(R.layout.activity_main);
 
         this.initializeData();
