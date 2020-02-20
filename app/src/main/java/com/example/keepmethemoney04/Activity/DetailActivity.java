@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.example.keepmethemoney04.Adapter.DetailListviewAdapter;
 import com.example.keepmethemoney04.Model.Saving;
+import com.example.keepmethemoney04.R;
 
 import net.daum.mf.map.api.MapView;
 
