@@ -70,7 +70,13 @@ public class ListviewAdapter extends BaseAdapter {
             principal = (int) Calculator.getPrincipal(targetMoney,Integer.parseInt(s.getSave_trm()),s.getIntr_rate());
             stdText.setText("기본금리");
         }
-        monthPrice.setText("월 "+ format.format(principal) +"원"); //Integer.toString(principal)
+
+        if(principal > s.getMax_limit()){
+            monthPrice.setText("한도 초과");
+        }
+        else{
+            monthPrice.setText("월 "+ format.format(principal) +"원");
+        }//Integer.toString(principal)
        //TextView accountName = convertView.findViewById(R.id.accountName);
 
        return convertView;

@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         viewPager.setPageMargin(margin / 2);
         viewPager.setAdapter(new ImagePagerAdapter(this, imageList));
 
-        if(savedInstanceState == null){
+        if(savedInstanceState == null || Data.savings.size() == 0){
             Log.d("test","스레드 입장");
             InitDataParser idp = new InitDataParser();
             idp.initData(mHandler);
