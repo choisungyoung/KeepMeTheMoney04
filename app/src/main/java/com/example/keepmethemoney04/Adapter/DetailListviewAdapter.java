@@ -23,8 +23,6 @@ public class DetailListviewAdapter extends BaseAdapter {
 
    public DetailListviewAdapter(Context context, int layout, ArrayList<Saving> list, int index){
        this.inflater=(LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
-       //======================
        this.data=list.get(index).getArrayList();
        this.layout=layout;
        this.targetMoney = targetMoney;

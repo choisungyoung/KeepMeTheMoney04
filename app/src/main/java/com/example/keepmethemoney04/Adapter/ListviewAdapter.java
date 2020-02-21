@@ -18,6 +18,7 @@ import java.util.ArrayList;
 public class ListviewAdapter extends BaseAdapter {
    private LayoutInflater inflater;
    private ArrayList<Saving> data;
+   private boolean[] check ;
     private int targetMoney;
    private int layout;
    private Context context;
@@ -27,6 +28,7 @@ public class ListviewAdapter extends BaseAdapter {
        this.data=data;
        this.layout=layout;
        this.targetMoney = targetMoney;
+       this.check = new boolean[data.size()];
    }
    @Override
    public int getCount(){return data.size();}
@@ -43,7 +45,6 @@ public class ListviewAdapter extends BaseAdapter {
        if(convertView==null){
            convertView=inflater.inflate(layout,parent,false);
        }
-
         Saving s=data.get(position);
         TextView savingNmae = convertView.findViewById(R.id.savingName);
         TextView bankName = convertView.findViewById(R.id.bankName);
@@ -81,6 +82,4 @@ public class ListviewAdapter extends BaseAdapter {
 
        return convertView;
    }
-
-
 }

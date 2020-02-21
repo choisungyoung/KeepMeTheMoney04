@@ -31,5 +31,4 @@ dependencies {
     testImplementation 'org.json:json:20140107'
     implementation fileTree(dir: 'libs', include: ['*.aar', '*.jar'], exclude: [])
     implementation files('libs\\libDaumMapAndroid.jar')
-
 }

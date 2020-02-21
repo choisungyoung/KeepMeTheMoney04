@@ -13,6 +13,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -40,6 +41,8 @@ public class DetailActivity extends AppCompatActivity {
     MapView mapView;
     String bankName;
 
+    boolean lastItemVisibleFlag = false;        //화면에 리스트의 마지막 아이템이 보여지는지 체크
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,14 +59,16 @@ public class DetailActivity extends AppCompatActivity {
         DetailListviewAdapter listadapter = new DetailListviewAdapter(this, R.layout.item_detail, list, index);
         listView.setAdapter(listadapter);
 
+
         mapView = new MapView(this);
 
-        ViewGroup mapViewContainer = (ViewGroup) findViewById(R.id.map_view);
+        final ViewGroup mapViewContainer = (ViewGroup) findViewById(R.id.map_view);
         mapViewContainer.addView(mapView);
 
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         //사용자의 현재 위치
         Location userLocation = getMyLocation();
+
         if (userLocation != null) {
             latitude = userLocation.getLatitude();
             longitude = userLocation.getLongitude();
@@ -74,9 +79,32 @@ public class DetailActivity extends AppCompatActivity {
         setCenter();
 
 
-        LocalInfoParser lip = new LocalInfoParser(Double.toString(longitude), Double.toString(latitude), 20000, bankName, mHandler);
+        LocalInfoParser lip = new LocalInfoParser(Double.toString(longitude), Double.toString(latitude), 5000, bankName, mHandler);
         Thread thread = new Thread(lip);
         thread.start();
+
+        listView.setOnScrollListener(new AbsListView.OnScrollListener() {
+            @Override
+            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+                //현재 화면에 보이는 첫번째 리스트 아이템의 번호(firstVisibleItem) + 현재 화면에 보이는 리스트 아이템의 갯수(visibleItemCount)가 리스트 전체의 갯수(totalItemCount) -1 보다 크거나 같을때
+                lastItemVisibleFlag = (totalItemCount > 0) && (firstVisibleItem + visibleItemCount >= totalItemCount-1);
+            }
+
+            @Override
+            public void onScrollStateChanged(AbsListView view, int scrollState) {
+                //OnScrollListener.SCROLL_STATE_IDLE은 스크롤이 이동하다가 멈추었을때 발생되는 스크롤 상태입니다.
+                //즉 스크롤이 바닦에 닿아 멈춘 상태에 처리를 하겠다는 뜻
+                if (scrollState == AbsListView.OnScrollListener.SCROLL_STATE_IDLE && lastItemVisibleFlag) {
+                    //TODO 화면이 바닦에 닿을때 처리
+                    mapViewContainer.setVisibility(ViewGroup.VISIBLE);
+                }
+                else
+                    if(!lastItemVisibleFlag){
+                        mapViewContainer.setVisibility(ViewGroup.GONE);
+                    }
+            }
+
+        });
     }
 
     private Location getMyLocation() {
@@ -90,7 +118,7 @@ public class DetailActivity extends AppCompatActivity {
             System.out.println("////////////권한요청 안해도됨");
 
             // 수동으로 위치 구하기
-            String locationProvider = LocationManager.GPS_PROVIDER;
+            String locationProvider = LocationManager.NETWORK_PROVIDER;
             currentLocation = locationManager.getLastKnownLocation(locationProvider);
             if (currentLocation != null) {
                 latitude = currentLocation.getLatitude();
@@ -117,13 +145,14 @@ public class DetailActivity extends AppCompatActivity {
 
         mapView.addPOIItem(marker);
     }
-    void addPoint(){
-        for(int i = 0 ; i < LocalInfoParser.locals.size() ; i++){
+
+    void addPoint() {
+        for (int i = 0; i < LocalInfoParser.locals.size(); i++) {
             LocalInfoParser.LocalInfo localInfo = LocalInfoParser.locals.get(i);
             MapPOIItem marker = new MapPOIItem();
             marker.setItemName(localInfo.bankName);
             marker.setTag(0);
-            marker.setMapPoint(MapPoint.mapPointWithGeoCoord( Double.parseDouble(localInfo.y), Double.parseDouble(localInfo.x)));
+            marker.setMapPoint(MapPoint.mapPointWithGeoCoord(Double.parseDouble(localInfo.y), Double.parseDouble(localInfo.x)));
             marker.setMarkerType(MapPOIItem.MarkerType.RedPin); // 기본으로 제공하는 BluePin 마커 모양.
             marker.setSelectedMarkerType(MapPOIItem.MarkerType.RedPin); // 마커를 클릭했을때, 기본으로 제공하는 RedPin 마커 모양.
             mapView.addPOIItem(marker);
