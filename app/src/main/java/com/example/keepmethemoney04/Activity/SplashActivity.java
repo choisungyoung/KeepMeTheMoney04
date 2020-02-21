@@ -1,6 +1,5 @@
 package com.example.keepmethemoney04.Activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.keepmethemoney04.R;
