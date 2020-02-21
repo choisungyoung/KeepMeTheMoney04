@@ -35,6 +35,8 @@ public class SplashActivity extends AppCompatActivity {
 
     }
 
+
+
     public void mOnClick(View v) {
         if (isFirst) {
             textView5.setText("선물");
