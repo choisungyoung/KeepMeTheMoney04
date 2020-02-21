@@ -26,11 +26,14 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-        Intent intent = new Intent(this, SplashActivity.class);
-        startActivity(intent);
+        startActivity(new Intent(getApplicationContext(), SplashActivity.class));
 
         super.onCreate(savedInstanceState);
+//        try {
+//            Thread.sleep(500);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
         setContentView(R.layout.activity_main);
 
         this.initializeData();
@@ -44,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         viewPager.setPageMargin(margin / 2);
         viewPager.setAdapter(new ImagePagerAdapter(this, imageList));
 
-        if(savedInstanceState == null){
+        if(savedInstanceState == null || Data.savings.size() == 0){
             Log.d("test","스레드 입장");
             InitDataParser idp = new InitDataParser();
             idp.initData(mHandler);

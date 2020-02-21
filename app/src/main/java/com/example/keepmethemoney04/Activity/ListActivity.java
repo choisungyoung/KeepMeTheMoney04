@@ -27,13 +27,14 @@ import com.example.keepmethemoney04.Model.Calculator;
 import com.example.keepmethemoney04.Model.Data;
 import com.example.keepmethemoney04.Model.Saving;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
 public class ListActivity extends AppCompatActivity {
     ArrayList<Saving> savings = null;
-    DecListView listView = null;
+    ListView listView = null;
     ListView menuListView = null;
     int targetMoney = 0;
     String productName = null;
@@ -52,7 +53,7 @@ public class ListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
 
-        listView = (DecListView) findViewById(R.id.listview);
+        listView = (ListView) findViewById(R.id.listview);
 
         savings = Data.savings;
         sortByRate2();
@@ -64,7 +65,8 @@ public class ListActivity extends AppCompatActivity {
         TextView productNameText = findViewById(R.id.productName);
         TextView rateText = findViewById(R.id.rate);
 
-        targetMoneyText.setText(convertHangul(Integer.toString(targetMoney)));
+        DecimalFormat format = new DecimalFormat("###,###");
+        targetMoneyText.setText(format.format(targetMoney));
         targetMoneyText.setPaintFlags(targetMoneyText.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         productNameText.setText(productName);
         productNameText.setPaintFlags(productNameText.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
@@ -123,60 +125,8 @@ public class ListActivity extends AppCompatActivity {
                 }
                 listadapter.notifyDataSetChanged();
                 DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer);
-                drawer.closeDrawer(Gravity.LEFT);
+                drawer.closeDrawer(Gravity.RIGHT);
             }
-        });
-
-        listView.setOnDetectScrollListener(new OnDetectScrollListener() {
-            @Override
-            public void onUpScrolling() {
-                /* do something */
-                Toast.makeText(getApplicationContext(), "up", Toast.LENGTH_SHORT);
-                System.out.println("위@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-            }
-
-            @Override
-            public void onDownScrolling() {
-                /* do something */
-                Toast.makeText(getApplicationContext(), "down", Toast.LENGTH_SHORT);
-                System.out.println("아래@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-                /*
-                if(isPageOpen){
-                    page.setVisibility(View.GONE);
-                    page.startAnimation(tranlateUpAnim);
-
-                }*/
-            }
-        });
-        final boolean lastItemVisibleFlag = false;
-        listView.setOnScrollListener(new AbsListView.OnScrollListener() {
-            @Override
-            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-                //현재 화면에 보이는 첫번째 리스트 아이템의 번호(firstVisibleItem) + 현재 화면에 보이는 리스트 아이템의 갯수(visibleItemCount)가 리스트 전체의 갯수(totalItemCount) -1 보다 크거나 같을때
-                //lastItemVisibleFlag = (totalItemCount > 0) && (firstVisibleItem + visibleItemCount >= totalItemCount;
-                /*
-                if(firstVisibleItem == 0){
-                    if(isPageOpen == false){
-                        page.setVisibility(View.VISIBLE);
-                        page.startAnimation(tranlateDownAnim);
-                    }
-                }
-                else if(firstVisibleItem == 1){
-                    if(isPageOpen == true){
-                        page.startAnimation(tranlateUpAnim);
-                    }
-                }*/
-            }
-
-            @Override
-            public void onScrollStateChanged(AbsListView view, int scrollState) {
-                //OnScrollListener.SCROLL_STATE_IDLE은 스크롤이 이동하다가 멈추었을때 발생되는 스크롤 상태입니다.
-                //즉 스크롤이 바닦에 닿아 멈춘 상태에 처리를 하겠다는 뜻
-                if (scrollState == AbsListView.OnScrollListener.SCROLL_STATE_IDLE && lastItemVisibleFlag) {
-                    //TODO 화면이 바닦에 닿을때 처리
-                }
-            }
-
         });
 
     }
@@ -194,7 +144,7 @@ public class ListActivity extends AppCompatActivity {
         Collections.sort(savings, new Comparator<Saving>() {
             @Override
             public int compare(Saving o1, Saving o2) {
-                if (o2.getIntr_rate() < o1.getIntr_rate()) {
+                if (o2.getIntr_rate() > o1.getIntr_rate()) {
                     return 1;
                 } else {
                     return -1;
@@ -309,7 +259,7 @@ public class ListActivity extends AppCompatActivity {
     }
 
 }
-
+/*
 
 class DecListView extends android.widget.ListView {
 
@@ -401,4 +351,4 @@ interface OnDetectScrollListener {
     void onUpScrolling();
 
     void onDownScrolling();
-}
+}*/
