@@ -21,6 +21,8 @@ public class ListviewAdapter extends BaseAdapter {
     private int targetMoney;
    private int layout;
    private Context context;
+//    private View view;
+
    public ListviewAdapter(Context context, int layout, ArrayList<Saving> data, int targetMoney){
        this.inflater=(LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
        this.context = context;
@@ -42,6 +44,7 @@ public class ListviewAdapter extends BaseAdapter {
    public View getView(int position, View convertView, ViewGroup parent){
        if(convertView==null){
            convertView=inflater.inflate(layout,parent,false);
+//           view = inflater.inflate(R.layout.no_view, null);
        }
 
         Saving s=data.get(position);
@@ -72,9 +75,11 @@ public class ListviewAdapter extends BaseAdapter {
         }
 
         if(principal > s.getMax_limit()){
+//            convertView.setVisibility(View.GONE);
             monthPrice.setText("한도 초과");
         }
         else{
+            convertView.setVisibility(View.VISIBLE);
             monthPrice.setText("월 "+ format.format(principal) +"원");
         }//Integer.toString(principal)
        //TextView accountName = convertView.findViewById(R.id.accountName);

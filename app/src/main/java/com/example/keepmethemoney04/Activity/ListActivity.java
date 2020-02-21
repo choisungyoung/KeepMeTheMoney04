@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.AttributeSet;
 import android.view.Gravity;
@@ -44,16 +45,20 @@ public class ListActivity extends AppCompatActivity {
     //애니메이션
     Animation tranlateUpAnim;
     Animation tranlateDownAnim;
-    LinearLayout page;
+    LinearLayout page, linearL;
     //숨겨진 페이지가 열렸는지 확인하는 변수
     boolean isPageOpen = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setCustomView(R.layout.title_bar);
         setContentView(R.layout.activity_list);
 
         listView = (ListView) findViewById(R.id.listview);
+        linearL = findViewById(R.id.linearL);
 
         savings = Data.savings;
         sortByRate2();
@@ -218,23 +223,23 @@ public class ListActivity extends AppCompatActivity {
     }
 
     public String convertHangul(String value) {
-        String[] number_labels = { "", "일", "이", "삼", "사", "오", "육", "칠", "팔", "구"};
+        String[] number_labels = {"", "일", "이", "삼", "사", "오", "육", "칠", "팔", "구"};
         String[] range_labels = {"", "십", "백", "천", "만", "십만", "백만", "천만", "억", "십억"};
 
 
-        int rangeCount = value.length()-1;
+        int rangeCount = value.length() - 1;
         int rawValue = Integer.valueOf(value);
         StringBuilder result = new StringBuilder();
-        while(rangeCount >= 0) {
-            int mod = (int)Math.pow(10, rangeCount);
-            result.append(number_labels[rawValue/mod]);
-            if(rawValue/mod > 0) {
+        while (rangeCount >= 0) {
+            int mod = (int) Math.pow(10, rangeCount);
+            result.append(number_labels[rawValue / mod]);
+            if (rawValue / mod > 0) {
                 result.append(range_labels[rangeCount]);
             }
             rawValue = rawValue % mod;
             rangeCount--;
         }
-      return result.toString();
+        return result.toString();
     }
 
 

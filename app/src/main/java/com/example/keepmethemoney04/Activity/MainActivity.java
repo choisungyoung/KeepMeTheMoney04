@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
@@ -29,12 +30,16 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(getApplicationContext(), SplashActivity.class));
 
         super.onCreate(savedInstanceState);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setCustomView(R.layout.title_bar);
 //        try {
 //            Thread.sleep(500);
 //        } catch (InterruptedException e) {
 //            e.printStackTrace();
 //        }
         setContentView(R.layout.activity_main);
+
 
         this.initializeData();
 
